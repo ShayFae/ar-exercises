@@ -11,3 +11,13 @@ puts "----------"
 # 2. On the next line, also output the average annual revenue for all stores.
 # 3. Output the number of stores that are generating $1M or more in annual sales. **Hint:** Chain together `where` and `size` (or `count`) Active Record methods.
 
+total_revenue = Store.sum(:annual_revenue)
+puts total_revenue
+total_average = Store.average(:annual_revenue)
+puts total_average
+
+@OverMill = Store.where("annual_revenue > ?", 1000000)
+
+@OverMill.each do | val |
+  puts " #{val.name} #{val.annual_revenue}"
+end
