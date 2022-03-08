@@ -20,3 +20,23 @@ puts "----------"
 # 2. Ask the user for a store name (store it in a variable)
 # 3. Attempt to create a store with the inputted name but leave out the other fields (annual_revenue, mens_apparel, and womens_apparel)
 # 4. Display the error messages provided back from ActiveRecord to the user (one on each line) after you attempt to save/create the record
+
+##Idea
+# validates :name, presence: true
+# validations: range 40..200?
+# validation employee presence: true?
+# validations: name.length >= 3?
+
+##Test validation
+# @store2.employees.create(first_name: "L", last_name: "ol", hourly_rate: 60)
+# @store2.employees.create(first_name: "Mill", hourly_rate: 60)
+# @store2.employees.create(last_name: "Mill", hourly_rate: 60)
+# @store2.employees.create(first_name: "New", last_name: "Test", hourly_rate: 20)
+# @store4 = Store.create(name: "L", annual_revenue: 430000, mens_apparel: true, womens_apparel: true)
+
+puts "Type store name"
+choice = gets.chomp
+
+test = Store.create(name: choice)
+# test.save
+puts test.errors.full_messages

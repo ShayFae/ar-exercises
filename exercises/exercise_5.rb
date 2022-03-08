@@ -16,8 +16,10 @@ puts total_revenue
 total_average = Store.average(:annual_revenue)
 puts total_average
 
-@OverMill = Store.where("annual_revenue > ?", 1000000)
+@overMill = Store.where("annual_revenue > ?", 1000000).count
 
-@OverMill.each do | val |
-  puts " #{val.name} #{val.annual_revenue}"
-end
+puts @overMill
+
+# @overMill.each do | val |
+#   puts " #{val.name} #{val.annual_revenue}"
+# end
